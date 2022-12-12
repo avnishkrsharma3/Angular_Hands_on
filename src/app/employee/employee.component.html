@@ -1,0 +1,42 @@
+
+
+<table>
+    <h3>Employee Details</h3>
+    <tr>
+        <td><b>ID</b></td>
+        <td>{{ e_test.id}}</td>
+    </tr>
+    <tr>
+        <td><B>Name</B></td>
+        <td>{{ e_test.name }}</td>
+    </tr>
+    <tr>
+        <td><b>Salary</b></td>
+        <td>{{ e_test.salary | currency : 'INR'}}</td>
+    </tr>
+    <tr *ngIf="e_test.permanent == 'Yes'">
+        <td><b>Permanent</b></td>
+        <td>{{ e_test.permanent }}</td>
+    </tr>
+    <tr>
+        <td><b>Department Id:</b></td>
+        <td>{{ e_test.department.id }}</td>
+    </tr>
+    <tr>
+        <td><b>Department Name</b></td>
+        <td>{{ e_test.department.name }}</td>
+    </tr>
+    <tr><b>Skills</b></tr>
+    <tr>
+        <td><b>Skill Id</b></td>
+        <td><b>Skill Name</b></td>
+    </tr>
+    <tr *ngFor="let skill of e_test.skill.skillArray; let i = index  " >
+        <td>{{i+1}}</td>
+        <td>{{skill}}</td>
+    </tr>
+    <tr>
+        <td><b>Date of Birth</b></td>
+        <td>{{e_test.dob  | date}}</td>
+    </tr>
+</table>

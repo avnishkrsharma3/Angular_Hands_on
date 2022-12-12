@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'hands_on_3';
+  title = 'hands_on_3 and hands_on_4';
+  // hands_on_3 
+  favoriteMovie = 'Lord of the Rings'
 }
