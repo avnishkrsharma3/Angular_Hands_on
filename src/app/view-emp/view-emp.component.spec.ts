@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ViewEmpComponent } from './view-emp.component';
+import { EmployeeComponent } from '../employee/employee.component';
 
 describe('ViewEmpComponent', () => {
   let component: ViewEmpComponent;
@@ -8,7 +9,7 @@ describe('ViewEmpComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ViewEmpComponent ]
+      declarations: [ ViewEmpComponent, EmployeeComponent ]
     })
     .compileComponents();
 
@@ -20,4 +21,9 @@ describe('ViewEmpComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
+  it('should create', () => {
+    expect(EmployeeComponent).toBeTruthy();
+  });
+
 });

@@ -1,10 +1,10 @@
 <p> Simple Button click event </p> 
 
 
-<button (click)="clickMethod()"> Click me </button>
+<button id='clickMe' (click)="clickMethod($event)"> Click me </button>
 
- <p>{{ msg }}</p>
-<!--
+<p id = 'simpleClick'>{{ msg }}</p>
+
 <p>Model Binding</p>
-<input type="text" [(ngModel)]="total" />
-<button (click)="incrementTotal($event)">Add</button> -->
+<input id = 'total' type="text" [(ngModel)]="total" value="total" />
+<button id="clickMeTotal" (click)="incrementTotal($event)">Add</button> 
