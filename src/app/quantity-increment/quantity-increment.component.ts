@@ -10,10 +10,10 @@ export class QuantityIncrementComponent {
   msg=''
   total= 0;
   status=true;
-  // clickMethod(){
-  //     this.msg = "Click me button clicked!";
-  //     console.log('clicked')
-  // }
+  clickMethod(){
+      this.msg = "Click me button clicked!";
+      console.log('clicked')
+  }
 
  incrementTotal(evnet : Event){
   this.total += 1;
