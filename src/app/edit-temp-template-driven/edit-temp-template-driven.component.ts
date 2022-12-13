@@ -1,4 +1,6 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChange, SimpleChanges, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { TitleStrategy } from '@angular/router';
 import { IEmployee } from '../employee/IEmployee';
 import { Employee } from './Employee';
 
@@ -8,9 +10,12 @@ import { Employee } from './Employee';
   styleUrls: ['./edit-temp-template-driven.component.css']
 })
 export class EditTempTemplateDrivenComponent {
-
+  onSubmit(f : NgForm){
+    console.log(f.value);
+    console.log("SUBMITED");
+}
 @ViewChild('ngForm')
-  viewForm:EditTempTemplateDrivenComponent | undefined;
+  ngForm:EditTempTemplateDrivenComponent | undefined;
   name:string;
   id:number;
   salary:number;
@@ -20,7 +25,6 @@ export class EditTempTemplateDrivenComponent {
   doj:Date;
   employee:Employee;
   selectedDep:number;
-
   constructor(){
     this.name='Avnish';
     this.id=1;
@@ -40,5 +44,6 @@ export class EditTempTemplateDrivenComponent {
     this.doj = new Date();
     this.employee = new Employee(this.name, this.salary, this.permanent);
   }
+ 
 
 }

@@ -7,16 +7,16 @@ import { ISkill } from "../employee/ISkill";
 export class Employee {
     id: number;
     name: string;
-    salary: 10000;
+    salary: number;
     permanent: boolean;
     department: { id: number, name: string };
     skills: { id: number, name: string }[];
     doj: Date;
     constructor(name:string, salary:number, permanent:boolean) {
-        this.name = 'Avnish';
+        this.name = name;
         this.id = 1;
-        this.salary = 10000;
-        this.permanent = false;
+        this.salary = salary;
+        this.permanent = permanent;
         this.department =
             { id: 1, name: "Payroll" };
         this.skills = [
@@ -26,6 +26,6 @@ export class Employee {
         ]
         this.doj = new Date();
     }
-
+   
 }
 

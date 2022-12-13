@@ -1,28 +1,27 @@
 <h2>Edit Employee</h2>
-<form #empForm="ngForm">
+<form #empForm="ngForm" (ngSubmit)="onSubmit(empForm)" action="GET">
     <div><strong><label for="inputName">Name</label></strong></div>
     <input id='inputName' type="text" name="inputName" required minlength="2" maxlength="10"
-        [(ngModel)]="name" #inputName="ngModel"/>{{name}}
+        [(ngModel)]="employee.name" #inputName="ngModel"/>{{name}}
      <div *ngIf="inputName.errors?.['minlength']" style="color: red;"> Name must be at least 2 Characters long.</div>
     <div><strong><label for='salary'>Salary</label></strong></div>
 
-    <input id='inputSalary' type="text" name="inputSalary" [(ngModel)]="salary" #inputSalary="ngModel" />
+    <input id='inputSalary' type="number" name="inputSalary" [(ngModel)]="employee.salary" #inputSalary="ngModel" />
     <div><strong>Is Permanent or not?</strong></div>
 
 
-    <input id='permanentTrue' type="radio" [value]=true name="IsPermanent" [(ngModel)]="permanent" #IsPermanent="ngModel">Yes
-    <input id="permanentFalse" type="radio" [value]=false name="IsPermanent" [(ngModel)]="permanent" #IsPermanent="ngModel">No
+    <input id='permanentTrue' type="radio" [value]=true name="IsPermanent" [(ngModel)]="employee.permanent" >Yes
+    <input id="permanentFalse" type="radio" [value]=false name="IsPermanent" [(ngModel)]="employee.permanent" >No
 
     <br>
- 
+
     <select id="departSelect" name="departSelect" [(ngModel)] = "employee.department.name" #departSelect="ngModel">
-      <option *ngFor=" let dep of departments"
-      >{{dep.name}}</option>
+      <option *ngFor=" let dep of departments">{{dep.name}}</option>
     </select>
     
     <br>
 
-    <button>Save</button>
+    <button type="submit">Save</button>
 
 
 </form>
