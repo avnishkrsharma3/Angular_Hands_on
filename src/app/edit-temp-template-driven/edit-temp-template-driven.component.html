@@ -1,0 +1,51 @@
+<h2>Edit Employee</h2>
+<form #empForm="ngForm">
+    <div><strong><label for="inputName">Name</label></strong></div>
+    <input id='inputName' type="text" name="inputName" required minlength="2" maxlength="10"
+        [(ngModel)]="name" #inputName="ngModel"/>{{name}}
+     <div *ngIf="inputName.errors?.['minlength']" style="color: red;"> Name must be at least 2 Characters long.</div>
+    <div><strong><label for='salary'>Salary</label></strong></div>
+
+    <input id='inputSalary' type="text" name="inputSalary" [(ngModel)]="salary" #inputSalary="ngModel" />
+    <div><strong>Is Permanent or not?</strong></div>
+
+
+    <input id='permanentTrue' type="radio" [value]=true name="IsPermanent" [(ngModel)]="permanent" #IsPermanent="ngModel">Yes
+    <input id="permanentFalse" type="radio" [value]=false name="IsPermanent" [(ngModel)]="permanent" #IsPermanent="ngModel">No
+
+    <br>
+ 
+    <select id="departSelect" name="departSelect" [(ngModel)] = "employee.department.name" #departSelect="ngModel">
+      <option *ngFor=" let dep of departments"
+      >{{dep.name}}</option>
+    </select>
+    
+    <br>
+
+    <button>Save</button>
+
+
+</form>
+
+
+
+
+
+
+
+
+<div>name.invalid - {{ inputName.invalid }} </div>
+<div>name.touched - {{ inputName.touched }} </div>
+<div>name.dirty - {{ inputName.dirty }} </div>
+<div>name.errors.required - {{ inputName.errors?.['required'] }} </div>
+<div>name.errors.minlength - {{ inputName.errors?.['minlength'] | json }} </div>
+
+<div class="block">
+    <strong>Employee Model</strong>
+    <pre> {{ employee | json }} </pre>
+</div>
+ 
+<div class="block">
+    <strong>Angular Generated Form Model</strong><br>
+    <pre>{{empForm?.['value'] | json}}</pre>
+</div>

@@ -9,6 +9,7 @@ import { EditEmpComponent } from './edit-emp/edit-emp.component';
 import { QuantityIncrementComponent } from './quantity-increment/quantity-increment.component';
 import { FormsModule } from '@angular/forms';
 import { QuantitySelectorComponent } from './quantity-selector/quantity-selector.component';
+import { EditTempTemplateDrivenComponent } from './edit-temp-template-driven/edit-temp-template-driven.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { QuantitySelectorComponent } from './quantity-selector/quantity-selector
     EditEmpComponent,
     QuantityIncrementComponent,
     QuantitySelectorComponent,
+    EditTempTemplateDrivenComponent,
   ],
   imports: [
     BrowserModule,
