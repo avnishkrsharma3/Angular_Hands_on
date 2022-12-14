@@ -42,7 +42,7 @@ export class EditTempTemplateDrivenComponent {
     ]
     this.selectedDep = 1;
     this.doj = new Date();
-    this.employee = new Employee(this.name, this.salary, this.permanent);
+    this.employee = new Employee();
   }
  
 

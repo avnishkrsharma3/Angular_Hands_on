@@ -1,0 +1,13 @@
+
+
+<h1>Employee List</h1>
+
+Search <input type="text" name="search" [(ngModel)] ="searchKey" >
+{{searchKey | uppercase}}
+
+<div class="main">
+<div id="id" *ngFor="let emp of employeeList  | searchContent:searchKey">
+        <app-employee-info [cameFromParent] = 'emp'></app-employee-info>
+</div>
+</div>
+

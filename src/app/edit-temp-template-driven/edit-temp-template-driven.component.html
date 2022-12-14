@@ -2,7 +2,7 @@
 <form class="block" #empForm="ngForm" (ngSubmit)="onSubmit(empForm)" action="GET">
     <div><strong><label for="inputName">Name</label></strong></div>
     <input id='inputName' type="text" name="inputName" required minlength="2" maxlength="10"
-        [(ngModel)]="employee.name" #inputName="ngModel"/>
+        [(ngModel)]="employee.name" #inputName="ngModel"/>{{name}}
      <div *ngIf="inputName.errors?.['minlength']" style="color: red;"> Name must be at least 2 Characters long.</div>
     <div><strong><label for='salary'>Salary</label></strong></div>
 

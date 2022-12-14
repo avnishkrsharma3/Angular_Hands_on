@@ -10,6 +10,12 @@ import { QuantityIncrementComponent } from './quantity-increment/quantity-increm
 import { FormsModule } from '@angular/forms';
 import { QuantitySelectorComponent } from './quantity-selector/quantity-selector.component';
 import { EditTempTemplateDrivenComponent } from './edit-temp-template-driven/edit-temp-template-driven.component';
+import { EditEmpReactiveComponent } from './edit-emp-reactive/edit-emp-reactive.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { EmployeeListComponent } from './employee-list/employee-list.component';
+import { EmployeeInfoComponent } from './employee-list/employee-info/employee-info.component';
+import { SearchContentPipe } from './search-content.pipe';
+
 
 @NgModule({
   declarations: [
@@ -20,11 +26,17 @@ import { EditTempTemplateDrivenComponent } from './edit-temp-template-driven/edi
     QuantityIncrementComponent,
     QuantitySelectorComponent,
     EditTempTemplateDrivenComponent,
+    EditEmpReactiveComponent,
+    EmployeeListComponent,
+    EmployeeInfoComponent,
+    SearchContentPipe,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule 
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

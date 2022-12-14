@@ -1,0 +1,11 @@
+.block {
+    float:left;
+    width:33%
+  }
+
+  .path {
+    border :red;
+    border-width: 2px;
+    margin-left: 4px;
+    padding-left: 4px;
+  }

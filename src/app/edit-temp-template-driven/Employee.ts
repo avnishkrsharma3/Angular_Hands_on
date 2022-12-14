@@ -12,11 +12,11 @@ export class Employee {
     department: { id: number, name: string };
     skills: { id: number, name: string }[];
     doj: Date;
-    constructor(name:string, salary:number, permanent:boolean) {
-        this.name = name;
+    constructor() {
+        this.name = 'Avnish';
         this.id = 1;
-        this.salary = salary;
-        this.permanent = permanent;
+        this.salary = 10000;
+        this.permanent = true;
         this.department =
             { id: 1, name: "Payroll" };
         this.skills = [
