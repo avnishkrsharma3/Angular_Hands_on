@@ -15,6 +15,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { EmployeeInfoComponent } from './employee-list/employee-info/employee-info.component';
 import { SearchContentPipe } from './search-content.pipe';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { SearchContentPipe } from './search-content.pipe';
     EmployeeListComponent,
     EmployeeInfoComponent,
     SearchContentPipe,
+    LoginComponent,
     
   ],
   imports: [

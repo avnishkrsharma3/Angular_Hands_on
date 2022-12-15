@@ -1,0 +1,11 @@
+
+<form action="" (ngSubmit)="login()">
+
+    UserName <input type="text" name="userName" id="userName" [(ngModel)] = "name" required/>
+    Password <input type="password" name="password" id="password" [(ngModel)] = "password" required/>
+    <button type="submit">submit</button>
+
+</form>
+
+
+<div *ngIf = "isLogin"> Invalid Username/Password </div>
