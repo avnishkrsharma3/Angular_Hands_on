@@ -1,10 +1,21 @@
-
-<form action="" (ngSubmit)="login()">
-
-    UserName <input type="text" name="userName" id="userName" [(ngModel)] = "name" required/>
-    Password <input type="password" name="password" id="password" [(ngModel)] = "password" required/>
-    <button type="submit">submit</button>
-
-</form>
-
-<div *ngIf = "isLogin"> Invalid Username/Password </div>
+<div class="login-box">
+    <h2>Login</h2>
+    <form action="" (ngSubmit)="login()">
+        <div class="user-box">
+            <input type="text" name="userName" id="userName" [(ngModel)]="name" required />
+            <label>Username</label>
+        </div>
+        <div class="user-box">
+            <input type="password" name="password" id="password" [(ngModel)]="password" required />
+            <label>Password</label>
+        </div>
+        <button type="submit" id="button">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Submit
+        </button>
+    </form>
+</div>
+<div *ngIf="isLogin"> Invalid Username/Password </div>
