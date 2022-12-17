@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Route, Router } from "@angular/router";
 import { EmployeeService } from "../employee.service";
 import { IDepartment } from "../employee/IDepartment";
 import { IEmployee } from "../employee/IEmployee";
@@ -23,19 +23,31 @@ export class EditEmpReactiveComponent implements OnInit {
   //Creating an object to store employee details.
   edit_emp: FormGroup;
   employee:IEmployee;
-
+  displayIn:boolean=false;
+  display:boolean=false;
+  empId:number = 1;
   constructor(public fb: FormBuilder, private route: ActivatedRoute,
-    private employeeService : EmployeeService) {
-    
-      this.employee = this.employeeService.getEmployee(1)
-
+    private employeeService : EmployeeService, private router: Router) {
+      const employeeId = this.route.snapshot.paramMap.get('id');
+      const eid:number= parseInt(employeeId!);
+      console.log("check " + employeeId == ":id");
+      console.log('value of isNaN' + isNaN(eid));
+      if(isNaN(eid)){
+      //  this.displayIn = true;    
+        this.employee = this.employeeService.getEmployee(1);
+        this.router.navigate(['/employeeList'])    
+      }else{
+      this.display = true;
+      this.employee = this.employeeService.getEmployee(eid);
+      console.log(employeeId + " from snapshot");
+      }
     //Fetching the employee having id same as employeeId.
     // this.employee = this.obj.getEmployee(employeeId);
 
     this.edit_emp = this.fb.group({
       name: [this.employee.name, [Validators.required, Validators.minLength(4), Validators.maxLength(20)]],
       salary: [this.employee.salary, [Validators.required, Validators.min(5000), Validators.max(50000)]],
-      permanent: [this.employee.permanent, [Validators.required]],
+      permanent: [this.employee.permanent=='Yes', [Validators.required]],
       department: [this.employee.department, [Validators.required]],
       empskills: new FormArray([], [Validators.required]),
     });
@@ -68,19 +80,22 @@ export class EditEmpReactiveComponent implements OnInit {
 
   //Method to be executed on submission of form for displaying form details.
   onSubmit(data: any): void {
+    this.employeeService.addEmployee(data);
     console.log(data);
+  }
+
+  updateEmpId(event:Event){
+    console.log('updated');
   }
 
   //Method to record checkboxes choices.
   onCheckBoxChange(e: any): void {
     const temp = <FormArray>this.edit_emp.get("empskills");
-
     //If a checkbox(e.target) is checked, push its value to temp array.
     if (e.target.checked) temp.push(new FormControl(e.target.value));
     //If a checkbox(e.target) is unchecked, pop its value from temp array.
     else {
       let i: number = 0;
-
       temp.controls.forEach((item) => {
         if (item.value == e.target.value) {
           temp.removeAt(i);

@@ -1,0 +1,20 @@
+
+  
+#main {
+  margin: 100px;
+  margin-top:10px;
+}
+
+
+.block {
+    float:left;
+    width:50%;
+  }
+
+
+.error {
+  color: red;
+  font-weight: 1000;
+  font-size: small;
+  font-family: 'Courier New', Courier, monospace;
+}

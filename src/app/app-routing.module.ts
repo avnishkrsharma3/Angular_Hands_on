@@ -9,18 +9,19 @@ import { EditTempTemplateDrivenComponent } from './edit-temp-template-driven/edi
 import { EditEmpReactiveComponent } from './edit-emp-reactive/edit-emp-reactive.component';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { LoginComponent } from './login/login.component';
+import { UserComponent } from './user/user.component';
+import { AuthGuard } from './auth/auth.guard';
+
 const routes: Routes = [
   {path: 'employee', component: ViewEmpComponent},
   {path: 'edit', component: EditEmpComponent },
   {path: 'quantityIncrement', component: QuantityIncrementComponent },
   {path: 'quantitySelector', component:QuantitySelectorComponent},
   {path: 'editTemplate', component:EditTempTemplateDrivenComponent},
-  {path: 'edit-emp-reactive/:id', component: EditEmpReactiveComponent},
+  {path: 'edit-emp-reactive/:id', component: EditEmpReactiveComponent, canActivate :[AuthGuard]},
   {path: 'employeeList', component: EmployeeListComponent},
   {path: 'login', component:LoginComponent},
-  {path: 'edit-emp-reactive/:id', component: EditEmpReactiveComponent,
-  canActivate: [(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => true]
-  }
+  {path: 'userData', component:UserComponent}
 ]
 
 

@@ -12,17 +12,21 @@ export class EmployeeService {
 
 
   constructor() {
-   this.employeeList = empList;
+  this.employeeList = empList;
   }
   
   getAllEmployees():IEmployee[]{
     return this.employeeList;
   }
-  
+  addEmployee(employee:any){
+    this.employeeList.push(employee);
+  }
   getEmployee(employeeId:number):IEmployee{
-    return this.employeeList.filter((emp:IEmployee) => {
-      emp.id == employeeId;
-    })[0];
+    let tempEmp:IEmployee[] = this.employeeList.filter((emp:IEmployee) => {
+      return emp.id === employeeId;
+    });
+    console.log(tempEmp.length);
+    return  tempEmp[0];
   }
 
 }
@@ -34,7 +38,7 @@ let skillArray: ISkill = { skillArray: array }; // skill interface
 let me: IEmployee = { // employee interface
   id: 1,
   name: 'Avnish',
-  salary: 150000,
+  salary: 49000,
   permanent: 'Yes',
   department: department,
   skill: skillArray,
@@ -44,7 +48,7 @@ let me: IEmployee = { // employee interface
 let me1: IEmployee = { // employee interface
   id: 2,
   name: 'Anit',
-  salary: 150000,
+  salary: 15000,
   permanent: 'Yes',
   department: department,
   skill: skillArray,
@@ -101,4 +105,13 @@ let me6: IEmployee = { // employee interface
   skill: skillArray,
   dob: new Date(),
 };
-let empList:IEmployee[]  = [me, me1, me2, me3, me4, me5, me6];
+let me7: IEmployee = { // employee interface
+  id: 8,
+  name: 'Anukriti',
+  salary: 49999,
+  permanent: 'Yes',
+  department: department,
+  skill: skillArray,
+  dob: new Date(),
+};
+let empList:IEmployee[]  = [me, me1, me2, me3, me4, me5, me6, me7];

@@ -16,7 +16,9 @@ import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { EmployeeInfoComponent } from './employee-list/employee-info/employee-info.component';
 import { SearchContentPipe } from './search-content.pipe';
 import { LoginComponent } from './login/login.component';
-
+import { UserComponent } from './user/user.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthGuard } from './auth/auth.guard';
 
 @NgModule({
   declarations: [
@@ -32,15 +34,17 @@ import { LoginComponent } from './login/login.component';
     EmployeeInfoComponent,
     SearchContentPipe,
     LoginComponent,
+    UserComponent,
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { 
